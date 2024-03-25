@@ -10,11 +10,12 @@ public class Inventory {
         mice = new Mouse[10];
     }
 
+
     public void addScreen(Screen a) {
         for(int i = 0; i< screens.length; i++) {
             if(screens[i] == null) {
-               screens[i] = a;
-               break;
+                screens[i] = a;
+                break;
             }
         }
     }
@@ -30,3 +31,4 @@ public class Inventory {
 
 
 }
+
