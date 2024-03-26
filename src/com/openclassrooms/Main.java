@@ -48,6 +48,10 @@ public class Main {
         inventory.addItem(appleMouse, 1);
 
         System.out.println("  ");
+        System.out.println("Ajout de 2 Items samsungScreen à l'inventaire");
+        inventory.addItem(samsungScreen, 2);
+
+        System.out.println("  ");
         System.out.println("Affichage de l'inventaire complet dans la console");
         inventory.displayInventoryOnConsole();
 
