@@ -1,16 +1,24 @@
 package com.openclassrooms.store;
 
-public class Item {
+/**
+ * TO DO Mettre la class en Interface ?
+ */
+abstract public class Item {
 
-    protected String brand;
+    // VARIABLES -----------------
+    protected Brand brand;
     protected double price;
 
-    protected Item(String brand, double price) {
+    // METHODES -----------------
+    protected Item(Brand brand, double price) {
+        System.out.println("L'objet Item a été déclenché");
         this.brand = brand;
         this.price = price;
+
     }
 
-    public String getBrand() {
+    public Brand getBrand() {
+        System.out.println("La méthode getBrand a été déclenchée");
         return this.brand;
     }
 
@@ -21,6 +29,7 @@ public class Item {
     */
 
     public double getPrice() {
+        System.out.println("La méthode getPrice a été déclenchée");
         return price;
     }
 

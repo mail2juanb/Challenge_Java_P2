@@ -1,34 +1,58 @@
 package com.openclassrooms.store;
 
+import java.util.HashMap;
+import java.util.Map;
+
+
 public class Inventory {
 
-    public Screen[] screens;
-    public Mouse[] mice;
+    protected Map<Item, Integer> inventoryMap = new HashMap<Item, Integer>();
 
-    public Inventory() {
-        screens = new Screen[10];
-        mice = new Mouse[10];
+    public void addItem(Item item, Integer quantity) {
+        System.out.println("La méthode addItem a été déclenchée");
+        System.out.println("L'argument item est : " + item);
+        System.out.println("L'argument item est de marque : " + item.brand);
+        System.out.println("L'argument quantity est : " + quantity);
+        inventoryMap.put(item, quantity);
+    }
+
+    public void removeItem(Item item, Integer quantity) {
+        System.out.println("La méthode removeItem a été déclenchée");
+        System.out.println("L'argument item est : " + item);
+        System.out.println("L'argument item est de marque : " + item.brand);
+        System.out.println("L'argument quantity est : " + quantity);
+
+        int newQuantity;
+        int quantityInventory = inventoryMap.get(item);
+        System.out.println("Dans l'inventaire il y a " + quantityInventory + " éléments de ce type");
+        newQuantity = quantityInventory - quantity;
+        System.out.println(quantityInventory + " - " + quantity + " = " + newQuantity);
+        if (newQuantity < 0) {
+            newQuantity = 0;
+            System.out.println("Attention, le résultat de la nouvelle quantité est négatif...");
+        }
+        inventoryMap.put(item, newQuantity);
     }
 
 
-    public void addScreen(Screen a) {
-        for(int i = 0; i< screens.length; i++) {
-            if(screens[i] == null) {
-                screens[i] = a;
-                break;
-            }
+    public void displayInventoryOnConsole() {
+        System.out.println("La méthode displayInventoryOnConsole a été déclenchée");
+        System.out.println("La map contient " + inventoryMap.size() + " clefs");
+
+        for(Map.Entry<Item, Integer> entry : inventoryMap.entrySet()) {
+            System.out.println(entry.getClass().toString() + " -> " + entry.getKey().toString() + " -> " + entry.getValue().toString());
         }
     }
 
-    public void addMouse(Mouse a) {
-        for(int i = 0; i< mice.length; i++) {
-            if(mice[i] == null) {
-                mice[i] = a;
-                break;
-            }
+    public void displayItemsOnConsole() {
+        System.out.println("La méthode displayItemsOnConsole a été déclenchée");
+        System.out.println("La map contient " + inventoryMap.size() + " clefs");
+
+        for(Map.Entry<Item, Integer> entry : inventoryMap.entrySet()) {
+            System.out.println(entry.getKey().toString());
         }
     }
-
-
 }
+
+
 
