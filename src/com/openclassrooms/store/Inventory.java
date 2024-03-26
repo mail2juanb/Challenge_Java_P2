@@ -13,7 +13,21 @@ public class Inventory {
         System.out.println("L'argument item est : " + item);
         System.out.println("L'argument item est de marque : " + item.brand);
         System.out.println("L'argument quantity est : " + quantity);
-        inventoryMap.put(item, quantity);
+
+        int newQuantity;
+        if (inventoryMap.get(item) != null) {
+            int quantityInventory = inventoryMap.get(item);
+            System.out.println("Dans l'inventaire il y a " + quantityInventory + " éléments de ce type");
+            newQuantity = quantityInventory - quantity;
+            System.out.println(quantityInventory + " - " + quantity + " = " + newQuantity);
+            if (newQuantity < 0) {
+                newQuantity = 0;
+                System.out.println("Attention, le résultat de la nouvelle quantité est négatif...");
+            }
+        } else {
+            newQuantity = quantity;
+        }
+        inventoryMap.put(item, newQuantity);
     }
 
     public void removeItem(Item item, Integer quantity) {

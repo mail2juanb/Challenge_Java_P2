@@ -17,6 +17,7 @@ public class Main {
 
         System.out.println("Création d'un Screen nommée samsungScreen");
         Screen samsungScreen = new Screen(Brand.SAMSUNG, 150.0, "1920x1080");
+        System.out.println("  ");
 
         System.out.println("Création d'une Mouse nommée appleMouse");
         Mouse appleMouse = new Mouse(Brand.APPLE, 1200.0);
