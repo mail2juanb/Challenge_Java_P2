@@ -2,6 +2,10 @@ package com.openclassrooms;
 
 import com.openclassrooms.store.*;
 
+/**
+ * TO DO - Enlever les println superflus, remplacer par des logs
+ */
+
 public class Main {
 
     public static void main(String[] args) {
